@@ -86,18 +86,15 @@ const navItems = [
   },
 ];
 
-const WHATSAPP_NUMBER = "923XXXXXXXXX";
-const WHATSAPP_MSG = encodeURIComponent("Hello SR Solar Solution! I am interested in your solar services. Please guide me.");
-const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MSG}`;
+const WHATSAPP_URL = `https://wa.me/923244029816?text=${encodeURIComponent("Hello SR Solar Solution! 👋\n\nI visited your website and I'm interested in your solar services.\n\nPlease guide me about the best solar solution for my needs.\n\nThank you! ☀️")}`;
 
 export default function Navbar() {
+  const { darkMode, setDarkMode } = useTheme();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
   const [mobileExpanded, setMobileExpanded] = useState(null);
-  const { darkMode, setDarkMode } = useTheme();
   const [waHovered, setWaHovered] = useState(false);
   const navRef = useRef(null);
-
 
   useEffect(() => {
     function handleClickOutside(e) {
@@ -120,11 +117,11 @@ export default function Navbar() {
           dark ? "bg-[#0B1120]" : "bg-white shadow-md"
         }`}
       >
-        {/* ── ROW 1: Logo | Company Name | spacer | Toggle | Get Quote ── */}
+        {/* ROW 1 — Logo + Toggle + Get Quote */}
         <div className={`border-b ${dark ? "border-[#1a2d4a]" : "border-gray-200"}`}>
           <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
 
-            {/* Logo + Name */}
+            {/* Logo */}
             <Link href="/" className="flex items-center gap-3 flex-shrink-0">
               <div className="relative w-16 h-16 flex-shrink-0">
                 <Image
@@ -146,9 +143,10 @@ export default function Navbar() {
               </div>
             </Link>
 
-            {/* Right: Toggle + Get Quote + Hamburger */}
+            {/* Right Actions */}
             <div className="flex items-center gap-3">
-              {/* Theme Toggle */}
+
+              {/* Dark/Light Toggle */}
               <button
                 onClick={() => setDarkMode(!dark)}
                 className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 text-lg ${
@@ -171,7 +169,7 @@ export default function Navbar() {
                 Get Quote
               </Link>
 
-              {/* Hamburger — mobile only */}
+              {/* Hamburger */}
               <button
                 onClick={() => setMobileOpen(!mobileOpen)}
                 className={`lg:hidden w-10 h-10 flex items-center justify-center rounded-lg text-xl transition-colors ${
@@ -185,8 +183,8 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* ── ROW 2: Nav Links — desktop only ── */}
-        <div className={`hidden lg:block ${dark ? "bg-[#0F1A2E]" : "bg-gray-50"} border-b ${dark ? "border-[#1a2d4a]" : "border-gray-200"}`}>
+        {/* ROW 2 — Nav Links (desktop only) */}
+        <div className={`hidden lg:block border-b ${dark ? "bg-[#0F1A2E] border-[#1a2d4a]" : "bg-gray-50 border-gray-200"}`}>
           <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-center gap-0.5 h-11">
               {navItems.map((item, idx) =>
@@ -205,7 +203,9 @@ export default function Navbar() {
                       }`}
                     >
                       {item.label}
-                      <span className={`text-xs transition-transform duration-200 inline-block ${openDropdown === idx ? "rotate-180" : ""}`}>▾</span>
+                      <span className={`text-xs transition-transform duration-200 inline-block ${openDropdown === idx ? "rotate-180" : ""}`}>
+                        ▾
+                      </span>
                     </button>
 
                     {openDropdown === idx && (
@@ -251,9 +251,11 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* ── Mobile Menu ── */}
+        {/* Mobile Menu */}
         {mobileOpen && (
-          <div className={`lg:hidden max-h-[75vh] overflow-y-auto ${dark ? "bg-[#0F1E33] border-t border-[#1a2d4a]" : "bg-white border-t border-gray-200"}`}>
+          <div className={`lg:hidden max-h-[75vh] overflow-y-auto ${
+            dark ? "bg-[#0F1E33] border-t border-[#1a2d4a]" : "bg-white border-t border-gray-200"
+          }`}>
             <div className="px-4 py-3 space-y-1">
               {navItems.map((item, idx) =>
                 item.dropdown ? (
@@ -265,7 +267,9 @@ export default function Navbar() {
                       }`}
                     >
                       {item.label}
-                      <span className={`text-xs transition-transform duration-200 inline-block ${mobileExpanded === idx ? "rotate-180" : ""}`}>▾</span>
+                      <span className={`text-xs transition-transform duration-200 inline-block ${mobileExpanded === idx ? "rotate-180" : ""}`}>
+                        ▾
+                      </span>
                     </button>
                     {mobileExpanded === idx && (
                       <div className="ml-4 mt-1 border-l-2 border-[#22C55E] pl-3 space-y-0.5">

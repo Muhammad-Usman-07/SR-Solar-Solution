@@ -1,11 +1,13 @@
-import React from 'react'
+import Hero from "@/components/home/Hero";
+import Stats from "@/components/home/Stats";
+import Services from "@/components/home/Services";
 
-const page = () => {
+export default function Home() {
   return (
-    <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 dark:bg-[#0B1120] dark:text-white transition-colors'>
-      <h1 className='text-2xl font-bold dark:text-white'>Main Page</h1>
-    </div>
-  )
+    <main>
+      <Hero />
+      <Stats />
+      <Services />
+    </main>
+  );
 }
-
-export default page
