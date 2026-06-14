@@ -19,3 +19,12 @@ html:not(.dark) body {
   background-color: #ffffff;
   color: #0B1120;
 }
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes scrollReverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
